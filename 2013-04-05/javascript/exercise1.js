@@ -46,13 +46,13 @@ GRID = SIMPLEX_GRID;
 NN = REPLICA;
 
 VIEW = DRAW;
-/******************************************************************/
+/* ESERCIZIO 1*/
 //Piano terra
 circle = DISK(0.18)([30,1])
 column = EXTRUDE([3.58])(circle)
 columns = STRUCT(NN(5)([column,T([1])([3.94])]))
 columnOnBalcony = T([2])([7.55])(column)
-
+//Quadrati
 squarePillars = GRID([[0.36,-1.86,0.36,-3.58,0.36,-3.58,0.36],[0.36],[3.29]])
 squarePillars = T([1,2])([-0.18,-0.18])(squarePillars)
 squarePillars = T([1,2,3])([2.08,7.55,0.29])(squarePillars)
@@ -80,7 +80,6 @@ primoPianoSecondaRiga = STRUCT([squarePillars2,squarePillars2Basse])
 column = EXTRUDE([3.15])(circle)
 column = T([1,2,3])([0.36*4+3.58*3,7.55,3.58+0.43])(column)
 pillars1 = STRUCT([primoPianoPrimaRiga,primoPianoSecondaRiga,column])
-
 //Secondo piano
 //Prima fila
 columnFront = GRID([[-0.36*4-3.58*4,0.36],[0.36],[3.15]])
@@ -108,9 +107,9 @@ columnBehindTerza = T([2,3])([7.55,3.58*3+0.43])(columnBehindTerza)
 columnFront = GRID([[-0.36*2-3.58*2,0.36,-3.58,-0.36,-3.58,0.36],[0.36],[3.15]])
 columnFront = T([1,2])([-0.18,-0.18])(columnFront)
 columnFront = T([3])([3.58*3+0.43])(columnFront)
-
+//Dietro
 columnBehind = STRUCT([columnBehindPrima,colomnBehindSeconda,columnBehindTerza])
 pillars3 = STRUCT([columnBehind,columnFront])
-
+//Risultato
 building = STRUCT([pillars0,pillars1,pillars2,pillars3])
 DRAW(building)

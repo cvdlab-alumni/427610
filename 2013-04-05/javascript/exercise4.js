@@ -176,3 +176,57 @@ VIEW(building)
 //floor2 = STRUCT()
 //floor3 = STRUCT()
 //floor4 = STRUCT()
+//ES 3
+muroBasso = (T([1,2,3])([-0.18,-0.14,3.58])(CUBOID([16,0.36,1.5])))
+muroBassoSx = T([1,2,3])([-0.18,-0.18,5.08])(CUBOID([0.36*3+3.58*2,0.36,5.86+1.85]))
+muroLatoDx = T([1,2,3])([-0.18+0.36*3+3.58*2,-0.18,9.44+1.43])(CUBOID([0.36+3.58,0.36,1.7]))
+muroLatoDx2 = T([1,2,3])([-0.18+0.36*3+3.58*2,-0.18,5.83+1.43])(CUBOID([0.36+3.58,0.36,1.5]))
+muroLatoDx3 = T([1,2,3])([-0.18+0.36*3+3.58*3,-0.18,5.06])(CUBOID([0.36*2+3.58,0.36,10.52]))
+muroLatoDx4 = T([1,2,3])([-0.18+0.36*3+3.58*3,-0.18,5.06])(CUBOID([0.36*2+3.58,0.36,10.52]))
+muroLatoDx5 = T([1,2,3])([9.595,-0.19,14.30])(CUBOID([1.79+0.36,0.36,1.3]))
+
+
+east = STRUCT([muroBasso,muroBassoSx,muroLatoDx,muroLatoDx2,muroLatoDx3,muroLatoDx4,muroLatoDx5])
+
+
+finestrone = muroBasso = (T([1,2,3])([-0.18,-0.14,3.58])(CUBOID([16,0.36,1.5])))
+muroBassoSx = T([1,2,3])([-0.18,-0.18,5.08])(CUBOID([0.36*3+3.58*2,0.36,5.86+1.85]))
+muroLatoDx = T([1,2,3])([-0.18+0.36*3+3.58*2,-0.18,9.44+1.43])(CUBOID([0.36+3.58,0.36,1.7]))
+muroLatoDx2 = T([1,2,3])([-0.18+0.36*3+3.58*2,-0.18,5.83+1.43])(CUBOID([0.36+3.58,0.36,1.5]))
+muroLatoDx3 = T([1,2,3])([-0.18+0.36*3+3.58*3,-0.18,5.06])(CUBOID([0.36*2+3.58,0.36,10.52]))
+muroLatoDx4 = T([1,2,3])([-0.18+0.36*3+3.58*3,-0.18,5.06])(CUBOID([0.36*2+3.58,0.36,10.52]))
+muroLatoDx5 = T([1,2,3])([9.595,-0.19,14.30])(CUBOID([1.79+0.36,0.36,1.3]))
+
+
+east = STRUCT([muroBasso,muroBassoSx,muroLatoDx,muroLatoDx2,muroLatoDx3,muroLatoDx4,muroLatoDx5])
+
+northUno = R([1,2])(PI/2)(GRID([[-0.36,1.79*4],[0.36],[1.72,-1.43,1.72,-1.43,1.72,-1.43,2.7]]))
+northUno = T([1,3])([16.14,3.58])(northUno)
+
+northSinistra = T([1,2,3])([15.79,-0.18,3.58])(CUBOID([0.35,0.54,12.12]))
+
+northDestra = T([1,2,3])([15.79,-0.18+0.54+1.79*4,3.58])(CUBOID([0.35,0.54,12.15]))
+northDestra2 = R([1,2])(PI/2)(GRID([[-0.15,0.2],[0.36],[-2.86,0.36,-2.86,0.36,-2.86,0.36]]))
+northDestra2 = T([1,2,3])([16.14,7.87,3.58])(northDestra2)
+
+northDestra3 = T([1,2,3])([15.79,-0.18+0.54+1.79*4+0.8,3.58])(CUBOID([0.35,0.54,12.15]))
+north = STRUCT([northUno,northSinistra,northDestra,northDestra2,northDestra3])
+
+building = STRUCT([building,east,north])
+VIEW(building)
+// Esercizio 4
+
+
+finestra = R([1,2])([PI/2])(GRID([[0.38,-0.7],[0.2],[-0.36,2.86,-0.36,2.86,-0.36,2.86,-0.36,2.1]]))
+spostata = T([1,2,3])([16.14,8.068,3.58])(finestra)
+
+colore = COLOR([127/255,255/255,212/255,0.7])(spostata)
+
+finestraRuotata = R([1,2])([PI/2])(GRID([[-0.36,1.79*4],[0.36],[-1.72,1.43,-1.72,1.43,-1.72,1.43,-2.7]]))
+finestraTrasposta = T([1,3])([16.14,3.58])(finestraRuotata)
+
+wind2 = T([1,2,3])([0.36*3+3.58*2-0.13,-0.13,5.08])(GRID([[4.5],[0.3],[2.2,-1.5,2.7,-1,2]]))
+window_color2 = COLOR([127/255,255/255,212/255,0.7])(wind2)
+colore_finestra = COLOR([127/255,255/255,212/255,0.7])(finestraTrasposta)
+building = STRUCT([window_color2,colore,finestraTrasposta,building])
+VIEW(building)

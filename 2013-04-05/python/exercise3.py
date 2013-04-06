@@ -152,11 +152,15 @@ east = STRUCT([muroBasso,muroBassoSx,muroLatoDx,muroLatoDx2,muroLatoDx3,muroLato
 
 northUno = R([1,2])(PI/2)(GRID([[-0.36,1.79*4],[0.36],[1.72,-1.43,1.72,-1.43,1.72,-1.43,2.7]]))
 northUno = T([1,3])([16.14,3.58])(northUno)
-"""
-northDestra = CUBOID([0.36,0.50,10.55])
-northDestra = T([1,2,3])([16,0.18,3.58])(northDestra)
-"""
-north = STRUCT([northUno])
+
+northSinistra = T([1,2,3])([15.79,-0.18,3.58])(CUBOID([0.35,0.54,12.12]))
+
+northDestra = T([1,2,3])([15.79,-0.18+0.54+1.79*4,3.58])(CUBOID([0.35,0.54,12.15]))
+northDestra2 = R([1,2])(PI/2)(GRID([[-0.15,0.2],[0.36],[-2.86,0.36,-2.86,0.36,-2.86,0.36]]))
+northDestra2 = T([1,2,3])([16.14,7.87,3.58])(northDestra2)
+
+northDestra3 = T([1,2,3])([15.79,-0.18+0.54+1.79*4+0.8,3.58])(CUBOID([0.35,0.54,12.15]))
+north = STRUCT([northUno,northSinistra,northDestra,northDestra2,northDestra3])
 
 building = STRUCT([building,east,north])
 VIEW(building)

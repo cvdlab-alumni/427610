@@ -113,7 +113,7 @@ triangolo = EXTRUDE([1,triangolo,0.43])
 triangolo = T([3])([3.58*2])(triangolo)
 
 floor2 = STRUCT([prova,rettangoloGrande,arriviDalleScale,triangolo])
-#Quarto piano
+#Terzo piano
 prova = CUBOID([5.07,1.36,3.58])
 prova = T([1,2,3])([8.23,7.59,3.58*2])(prova)
 pavimentoGrande = CUBOID([16.25,7.87,0.43])
