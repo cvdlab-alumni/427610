@@ -278,5 +278,6 @@ wheel2 = T([1,2,3])([1.85,-0.5,2])(wheel)
 wheel3 = T([1,2,3])([-1.85,-0.5,-1.8])(wheel)
 wheel4 = T([1,2,3])([1.85,-0.5,-1.8])(wheel)
 
-DRAW(STRUCT([totale,wheel1,wheel2,wheel3,wheel4]))
+totale = STRUCT([totale,wheel1,wheel2,wheel3,wheel4])
+DRAW(totale)
 
