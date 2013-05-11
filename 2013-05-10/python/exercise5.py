@@ -1,6 +1,6 @@
 from pyplasm import *
 #Support function and inital data
-dom1D = INTERVALS(1)(10)
+dom1D = INTERVALS(1)(32)
 dom2D = PROD([dom1D,dom1D])
 DRAW = VIEW
 
@@ -404,11 +404,11 @@ x54Specchio_p =  [[7.5, 1.24,zDietro],[7.32, 1.5,zDietro],[7.19, 1.75,zDietro],[
 x54Specchio_2d = mappedBezier_1D(x54Specchio_p);
 x54Specchio_s0 = bezierS1(x54Specchio_p);
 
-x55_p = [[6.11, 1.29,zDavanti], [6.11, 1.56,zDavanti+0.3], [6.11, 1.68,zDavanti+0.3], [6.11, 1.8,zDavanti]]
+x55_p = [[6.11, 1.29,zDavanti], [6.11, 1.56,zDavanti-0.5], [6.11, 1.68,zDavanti-0.5], [6.11, 1.8,zDavanti]]
 x55_2d = mappedBezier_1D(x55_p);
 x55_s0 = bezierS1(x55_p);
 
-x55Specchio_p = [[6.11, 1.29,zDietro], [6.11, 1.56,zDietro+0.3], [6.11, 1.68,zDietro+0.3], [6.11, 1.8,zDietro]]
+x55Specchio_p = [[6.11, 1.29,zDietro], [6.11, 1.56,zDietro-0.3], [6.11, 1.68,zDietro-0.3], [6.11, 1.8,zDietro]]
 x55Specchio_2d = mappedBezier_1D(x55Specchio_p);
 x55Specchio_s0 = bezierS1(x55Specchio_p);
 
@@ -424,4 +424,89 @@ frontGlass = R([1,3])(PI/2)(frontGlass)
 frontGlass = T([1,2,3])([0.9,-1,-6])(frontGlass)
 #DRAW(frontGlass)
 totale = STRUCT([totale,frontGlass])
+#DRAW(totale)
+#Second surface
+zSopra = 0.1
+zSotto = -0.1
+
+x56_p = [[3.99, 2.23,zSopra], [3.6, 2.27,zSopra-0.1], [3.54, 3.77,zSopra-0.1], [3.99, 4.02,zSopra]]
+x56_2d = mappedBezier_1D(x56_p);
+x56_s0 = bezierS1(x56_p);
+
+x56Specchio_p = [[3.99, 2.23,zSotto], [3.6, 2.27,zSotto], [3.54, 3.77,zSotto], [4.01, 4.02,zSotto]]
+x56Specchio_2d = mappedBezier_1D(x56Specchio_p)
+x56Specchio_s0 = bezierS1(x56Specchio_p)
+
+x65_p = [[3.99, 2.23,zSopra], [4.01, 4.02,zSopra]]
+x65_2d = mappedBezier_1D(x65_p)
+x65_s0 = bezierS1(x65_p)
+
+x65Specchio_p = [[3.99, 2.23,zSotto], [4.01, 4.02,zSotto]]
+x65Specchio_2d = mappedBezier_1D(x65Specchio_p)
+x65Specchio_s0 = bezierS1(x65Specchio_p)
+
+x57_p = [[5.11, 4.04,zSopra+0.1], [4.63, 4.09,zSopra], [4.14, 4.03,zSopra], [3.99, 4.02,zSopra]]
+x57_2d = mappedBezier_1D(x57_p)
+x57_s0 = bezierS1(x57_p)
+
+x57Specchio_p = [[5.11, 4.04,zSotto+0.1], [4.63, 4.09,zSotto], [4.14, 4.03,zSotto], [3.99, 4.02,zSotto]]
+x57Specchio_2d = mappedBezier_1D(x57Specchio_p)
+x57Specchio_s0 = bezierS1(x57Specchio_p)
+
+x58_p = [[5.11, 2.19,zSopra+0.1], [4.8, 2.18,zSopra], [4.45, 2.21,zSopra], [3.99, 2.23,zSopra]]
+x58_2d = mappedBezier_1D(x58_p)
+x58_s0 = bezierS1(x58_p)
+
+x58Specchio_p = [[5.11, 2.19,zSotto+0.1], [4.8, 2.18,zSotto], [4.45, 2.21,zSotto], [3.99, 2.23,zSotto]]
+x58Specchio_2d = mappedBezier_1D(x58Specchio_p)
+x58Specchio_s0 = bezierS1(x58Specchio_p)
+
+zSopra = zSopra+0.1
+zSotto = zSotto+0.1
+
+x59_p = [[5.11, 2.19,zSopra], [5.05, 2.51,zSopra], [5.08, 3.34,zSopra], [5.11, 4.03,zSopra]]
+x59_2d = mappedBezier_1D(x59_p)
+x59_s0 = bezierS1(x59_p)
+
+x59Specchio_p = [[5.11, 2.19,zSotto], [5.05, 2.51,zSotto], [5.08, 3.34,zSotto], [5.11, 4.03,zSotto]]
+x59Specchio_2d = mappedBezier_1D(x59Specchio_p)
+x59Specchio_s0 = bezierS1(x59Specchio_p)
+
+x60_p = [[6.56, 4.14,zSopra-0.1], [6.01, 4.06,zSopra], [5.48, 4.09,zSopra], [5.11, 4.03,zSopra]]
+x60_2d = mappedBezier_1D(x60_p)
+x60_s0 = bezierS1(x60_p)
+
+x60Specchio_p = [[6.56, 4.14,zSotto-0.1], [6.01, 4.06,zSotto], [5.48, 4.09,zSotto], [5.11, 4.03,zSotto]]
+x60Specchio_2d = mappedBezier_1D(x60Specchio_p)
+x60Specchio_s0 = bezierS1(x60Specchio_p)
+
+x61_p = [[6.49, 2.05,zSopra-0.1], [6.15, 2.15,zSopra], [5.51, 2.17,zSopra], [5.11, 2.19,zSopra]]
+x61_2d = mappedBezier_1D(x61_p)
+x61_s0 = bezierS1(x61_p)
+
+x61Specchio_p = [[6.49, 2.05,zSotto-0.1], [6.15, 2.15,zSotto], [5.51, 2.17,zSotto], [5.11, 2.19,zSotto]]
+x61Specchio_2d = mappedBezier_1D(x61Specchio_p)
+x61Specchio_s0 = bezierS1(x61Specchio_p)
+
+p1 = mappedBezier_2D([x56_s0,x65_s0])
+p1Specchio = mappedBezier_2D([x56Specchio_s0,x65Specchio_s0])
+p2 = mappedBezier_2D([x56_s0,x56Specchio_s0])
+p3 = mappedBezier_2D([x57_s0,x58_s0])
+p3Specchio = mappedBezier_2D([x57Specchio_s0,x58Specchio_s0])
+p4 = mappedBezier_2D([x58_s0,x58Specchio_s0])
+p5 = mappedBezier_2D([x57_s0,x57Specchio_s0])
+p6 = mappedBezier_2D([x59_s0,x59Specchio_s0])
+p7 = mappedBezier_2D([x60_s0,x60Specchio_s0])
+p8 = mappedBezier_2D([x61_s0,x61Specchio_s0])
+p9 = mappedBezier_2D([x60_s0,x61_s0])
+p10 = mappedBezier_2D([x60Specchio_s0,x61Specchio_s0])
+
+
+roof = STRUCT([p1,p1Specchio,p2,p3,p3Specchio,p4,p5,p6,p7,p8,p9,p10])
+roof = R([2,3])(-PI/2)(roof)
+roof = T([1,2,3])([-5.65,1.98,3.2])(roof)
+roof = S([2,3])([0.4,1.02])(roof)
+
+
+totale = STRUCT([totale,roof])
 DRAW(totale)
