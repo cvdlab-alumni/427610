@@ -264,10 +264,16 @@ m6 = mappedBezier_2D([x43_s0,x44_s0])
 rim3Dvuoto = STRUCT([m1,m2,m3,m4])
 rim3Dpieno = STRUCT([m1,m2,m3,m4,m5,m6])
 
-two = STRUCT([rim3Dvuoto,R([1,2])(-PI/8)(T([1,2])([-1.17,1.66])(rim3Dpieno))])
-three = T([3])([0.1])(two)
-three = T([1,2])([-5.4,-2.5])(three)
-three = S([1,2])([0.65,0.65])(three)
+#two = STRUCT([rim3Dvuoto,R([1,2])(-PI/8)(T([1,2])([-1.17,1.66])(rim3Dpieno))])
+GRAY = Color4f([0.5, 0.5, 0.5, 1.0])
+two = CUBOID([0.1,1.2,0.2])
+two = STRUCT(NN(8)([two, ROTN([PI/4,[0,0,2]])]))
+
+
+#three = T([3])([0.1])(two)
+#three = T([1,2])([-5.4,-2.5])(three)
+#three = S([1,2])([0.65,0.65])(three)
+three = COLOR(BLACK)(two)
 wheel = T([1,2])([-0.15,-4.95])(wheel)
 
 wheel = STRUCT([wheel,three])
@@ -280,7 +286,6 @@ wheel3 = T([1,2,3])([-1.85,-0.5,-1.8])(wheel)
 wheel4 = T([1,2,3])([1.85,-0.5,-1.8])(wheel)
 
 totale = STRUCT([totale,wheel1,wheel2,wheel3,wheel4])
-#DRAW(totale)
 #----------------------------------------------------------------------------
 #Exercise 4
 zDavanti = 0.1
@@ -364,8 +369,6 @@ racingWheel = R([1,3])(PI/2)(racingWheel)
 racingWheel = T([1,3])([0.45,-0.45])(racingWheel)
 
 totale = STRUCT([racingWheel,totale])
-#DRAW(totale)
-#-----------------------------------------------------
 #Exercise 5
 #Front glass
 zDavanti = 0.005
@@ -506,7 +509,7 @@ roof = STRUCT([p1,p1Specchio,p2,p3,p3Specchio,p4,p5,p6,p7,p8,p9,p10])
 roof = R([2,3])(-PI/2)(roof)
 roof = T([1,2,3])([-5.65,1.98,3.2])(roof)
 roof = S([2,3])([0.4,1.02])(roof)
-
+roof = COLOR(BLACK)(roof)
 
 totale = STRUCT([totale,roof])
 DRAW(totale)

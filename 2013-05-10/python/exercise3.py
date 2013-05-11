@@ -1,6 +1,7 @@
 from pyplasm import *
 #Support function and inital data
-dom1D = INTERVALS(1)(32)
+#dom1D = INTERVALS(1)(32)
+dom1D = INTERVALS(1)(10)
 dom2D = PROD([dom1D,dom1D])
 DRAW = VIEW
 
@@ -263,10 +264,16 @@ m6 = mappedBezier_2D([x43_s0,x44_s0])
 rim3Dvuoto = STRUCT([m1,m2,m3,m4])
 rim3Dpieno = STRUCT([m1,m2,m3,m4,m5,m6])
 
-two = STRUCT([rim3Dvuoto,R([1,2])(-PI/8)(T([1,2])([-1.17,1.66])(rim3Dpieno))])
-three = T([3])([0.1])(two)
-three = T([1,2])([-5.4,-2.5])(three)
-three = S([1,2])([0.65,0.65])(three)
+#two = STRUCT([rim3Dvuoto,R([1,2])(-PI/8)(T([1,2])([-1.17,1.66])(rim3Dpieno))])
+GRAY = Color4f([0.5, 0.5, 0.5, 1.0])
+two = CUBOID([0.1,1.2,0.2])
+two = STRUCT(NN(8)([two, ROTN([PI/4,[0,0,2]])]))
+
+
+#three = T([3])([0.1])(two)
+#three = T([1,2])([-5.4,-2.5])(three)
+#three = S([1,2])([0.65,0.65])(three)
+three = COLOR(BLACK)(two)
 wheel = T([1,2])([-0.15,-4.95])(wheel)
 
 wheel = STRUCT([wheel,three])
