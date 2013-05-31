@@ -13,7 +13,7 @@ def yZero(array):
 
 
 def scambiaXZ(elemento):
-	return [S3(elemento),S2(elemento),S1(elemento)]
+	return 2[S3(elemento),S2(elemento),S1(elemento)]
 
 def xZero(array):
 	return AA(scambiaXZ)(array)	
