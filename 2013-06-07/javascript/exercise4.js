@@ -92,8 +92,8 @@ var treeModel = function(raggio,z,altezzaTronco){
 
 a = treeModel(0.1,0,2);
 
-for (var i = 28; i <30; i++) {
-	for (var j = 28; j < 30; j++) {
+for (var i = 23; i <30; i++) {
+	for (var j = 23; j < 30; j++) {
 		z = mappaZ[i+","+j];
 		//z
 		DRAW(T([0,1,2])([i,j,z])(a))
@@ -119,5 +119,19 @@ function settlement(offset_x,offset_y,offset_house_x,offset_house_y, many_x,many
 					]
 				)
 				)
-		return horizontal;
+		horizontal  = R([1,2])([PI/2])(horizontal)
+		var matrix = []
+		for (var i = 0;i < many_y; i++) {
+			matrix.push(horizontal);
+			matrix.push(T([1])([offset_house_y]))
+		};
+		matrix = STRUCT(matrix);
+		
+		matrix = T([0,1])([offset_x,offset_y])(matrix);
+		return matrix
 }
+
+firstSettlement = settlement(30,15,5,5,5,5)
+secondSettlement = settlement(-49,7,3,6,4,4)
+DRAW(firstSettlement)
+DRAW(secondSettlement)
