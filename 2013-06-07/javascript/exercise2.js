@@ -6,7 +6,7 @@ var mappaZ = {};
 var montagneF = function(punto){
 	var x = punto[0];
 	var y = punto[1];
-	var z =  Math.pow(Math.random()*3 * SIN(x) * COS(y),2);
+	var z =  Math.pow(Math.random()*3 * SIN(x) * COS(y),1.3);
 	var random = Math.random()/5;
 	z = random + z;
 	mappaZ[punto[0]+","+punto[1]] = z;
@@ -26,8 +26,8 @@ var lagoF = function (max) {
 
 var minimo = function(){
 	var m = 100;
-	for (var i = 0; i <= 5; i++) {
-		for (var j = 0; j <= 5; j++) {
+	for (var i = 24; i <= 28; i++) {
+		for (var j = -5; j <= 5; j++) {
 			if(mappaZ[i+","+j]<m) m=mappaZ[i+","+j];	
 		};
 	};
@@ -36,8 +36,8 @@ var minimo = function(){
 
 var massimo = function(){
 	var m = -100;
-	for (var i = 0; i <= 5; i++) {
-		for (var j = 0; j <= 5; j++) {
+	for (var i = 24; i <= 28; i++) {
+		for (var j = -5; j <= 5; j++) {
 			if(mappaZ[[i+","+j]]>m){ 
 				m=mappaZ[[i+","+j]]; 
 				//console.log(m);	
@@ -49,13 +49,13 @@ var massimo = function(){
 
 //Ex1
 var territorio = MAP(montagneF)(dominio);
-DRAW(territorio);
+DRAW(COLOR([160/255, 82/255, 45/255])(territorio));
 
 //Ex 2
 var min = minimo(mappaZ);
 var max = massimo(mappaZ);
-var dominioLago = DOMAIN([[0, 5], [0, 5]])([1,1]);
-var medio = (max-min)/2 -0.4;
+var dominioLago = DOMAIN([[0, 5], [-5, 5]])([1,1]);
+var medio = 0.15;
 lagoF = lagoF(medio);
 var lago = MAP(lagoF)(dominioLago);
-DRAW(COLOR([0,1,0])(lago))
+DRAW(COLOR([70/255,130/255,180/255])(lago))

@@ -1,13 +1,14 @@
 var dominio = DOMAIN([[-30, 30], [-30, 30]])([30,30]);
 
-var montagne = function(punto){
+var montagneF = function(punto){
 	var x = punto[0];
 	var y = punto[1];
-	var z =  Math.pow(Math.random()*3 * SIN(x) * COS(y),2);
+	//var z =  Math.random()*3 * SIN(x) * COS(y);
+	var z =  Math.pow(Math.random()*3 * SIN(x) * COS(y),1.3);
 	var random = Math.random()/5;
-	return [x, y, random+z];
+	z = random + z;
+	return [x, y, z];
 }
+var territorio = MAP(montagneF)(dominio);
 
-var territorio = MAP(montagne)(dominio);
-
-DRAW(territorio);
+DRAW(COLOR([160/255, 82/255, 45/255])(territorio));
