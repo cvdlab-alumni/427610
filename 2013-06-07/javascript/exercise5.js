@@ -169,13 +169,13 @@ function roadsVertical(offset_x,offset_y,width_road,height_road,offset_house_x, 
 }
 
 //Strade per il primo villaggio
-stradeHor = roadsHorizontal(30,15,46,4,0,5,4,0)
-stradeVer = roadsVertical(31,15,4,15,5,0.1,0,9)
+stradeHor = roadsHorizontal(30,15,46,3.6,0,5,4,0)
+stradeVer = roadsVertical(31,15,3,15,5,0.1,0,9)
 DRAW(stradeHor)
 DRAW(stradeVer)
 
 //Strade per il secondo villaggio
-stradeHor = roadsHorizontal(-49,7,18,5,0,6,3,0)
-stradeVer = roadsVertical(-47,5,2,16,2.8,0.1,0,6)
+stradeHor = roadsHorizontal(-49,7,18,3.8,0,6.3,3,0)
+stradeVer = roadsVertical(-50,5,2,19,3,0.4,0,7)
 DRAW(stradeHor)
 DRAW(stradeVer)
