@@ -83,11 +83,11 @@ var treeModel = function(raggio,z,altezzaTronco){
 	var fin = cerc(raggio,altezzaTronco);
 	var tronco = bezierMappata_2D([fin,baseAlbero]);
 	var baseCono = cerc(raggio+0.5,altezzaTronco);
-	var punto = [0,0,altezzaTronco+1];
-	var punto1 =[0,0,altezzaTronco]
-	var cono = MAP(CONICAL_SURFACE(punto)(baseCono))(domain2D);
-	var cono1 = MAP(CONICAL_SURFACE(punto1)(baseCono))(domain2D);
-	return STRUCT([COLOR([150/255, 75/255, 0])(tronco),COLOR([0,1,0])(cono),COLOR([0,1,0])(cono1)])
+	var first = [0,0,altezzaTronco+1];
+	var second =[0,0,altezzaTronco]
+	var foglie = MAP(CONICAL_SURFACE(first)(baseCono))(domain2D);
+	var baseFoglie = MAP(CONICAL_SURFACE(second)(baseCono))(domain2D);
+	return STRUCT([COLOR([150/255, 75/255, 0])(tronco),COLOR([0,1,0])(foglie),COLOR([0,1,0])(baseFoglie)])
 }
 
 a = treeModel(0.1,0,2);
