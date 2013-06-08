@@ -29,7 +29,7 @@ var lar_to_obj = function(larModel){
 			result+= V[i][0]+" "+V[i][1]+" "+V[i][2] : result+= V[i][0]+" "+V[i][1]+" 0"
 		result+="\n";
 	}
-	result = result.concat("\n");
+	result+="\n";
 	for (var i = 0; i < FV.length; i++){
 		result+="f ";
 		for (var j = 0; j < FV[i].length; j++) {
