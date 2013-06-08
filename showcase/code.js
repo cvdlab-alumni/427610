@@ -1,7 +1,28 @@
 var domain = INTERVALS(1)(50)
 var domain2 = DOMAIN([[0,1],[0,1]])([50,50]);
 var domain2resolution = DOMAIN([[0,1],[0,1]])([70,70]);
-
+/*
+//Alias traslazione con clone
+TC = T
+//Traslazione senza clone
+function T(dims) {
+    return function (values) {
+      return function (object) {
+       return object.translate(dims, values);
+      };
+    };
+  }
+//Alias rotazione con clone
+RC = R
+//Rotazione senza clone
+function R(dims) {
+    return function (angle) {
+      return function (object) {
+        return object.rotate(dims, angle);
+      };
+    };
+  }
+*/
 NN = REPLICA;
 
 var INTERP_P2P = function (sel) {
